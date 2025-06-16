@@ -22,12 +22,12 @@ export class TripDataService {
   }
 
   getTrip(tripCode: string) : Observable<Trip[]> {
-    // console.log('Inside TripDataService::getTrips');
+    // console.log('Inside TripDataService::getTrips);
     return this.http.get<Trip[]>(this.url + '/' + tripCode);
   }
 
   updateTrip(formData: Trip) : Observable<Trip> {
-    // console.log('Inside TripDataService::addTrips');
+    // console.log('Inside TripDataService::addTrip);
     return this.http.put<Trip>(this.url + '/' + formData.code, formData);
   }
 }

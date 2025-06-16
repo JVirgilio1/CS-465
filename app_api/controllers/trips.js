@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Trip = require('../models/travlr'); // Register model
+const Trip = require('../models/travlr'); 
 const Model = mongoose.model('trips');
 
 // GET: /trips - lists of all the trips
@@ -7,19 +7,16 @@ const Model = mongoose.model('trips');
 // and JSON message to the requesting client
 const tripsList = async (req, res) => {
     const q = await Model 
-        .find({}) // No filter, return all records
-        .exec(); // Execute query
+        .find({}) 
+        .exec(); 
 
-        // Uncomment the following line to show results of query
-        // on the console
-        // console.log(q);
 
     if(!q)
-    { // Database returned no data
+    { 
         return res
             .status(404)
             .json(err);
-    } else { // Return resulting trip list
+    } else { 
         return res
             .status(200)
             .json(q);
@@ -31,19 +28,18 @@ const tripsList = async (req, res) => {
 // and JSON message to the requesting client
 const tripsFindByCode = async (req, res) => {
     const q = await Model 
-        .find({'code' : req.params.tripCode }) // Return single record
-        .exec(); // Execute query
-
+        .find({'code' : req.params.tripCode }) 
+        .exec(); 
         // Uncomment the following line to show results of query
         // on the console
         // console.log(q);
 
     if(!q)
-    { // Database returned no data
+    { 
         return res
             .status(404)
             .json(err);
-    } else { // Return resulting trip list
+    } else { 
         return res
             .status(200)
             .json(q);
@@ -86,6 +82,5 @@ const tripsAddTrip = async (req, res) => {
 module.exports = {
     tripsList,
     tripsFindByCode,
-    tripsAddTrip,
-    tripsUpdateTrip
+    tripsAddTrip
 };
