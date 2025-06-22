@@ -1,23 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { trips } from '../data/trips';
+import { TripCardComponent } from '../trip-card/trip-card.component';
 
-import { TripListingComponent } from './trip-listing.component';
+@Component({
+  selector: 'app-trip-listing',
+  standalone: true,
+  imports: [CommonModule, TripCardComponent],
+  templateUrl: './trip-listing.component.html',
+  styleUrl: './trip-listing.component.css'
+})
+export class TripListingComponent implements OnInit {
+  trips: Array<any> = trips;
 
-describe('TripListingComponent', () => {
-  let component: TripListingComponent;
-  let fixture: ComponentFixture<TripListingComponent>;
+  constructor() {}
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [TripListingComponent]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(TripListingComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  ngOnInit(): void {
+    
+  }
+}
